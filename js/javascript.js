@@ -18,19 +18,26 @@ function play(userChoice, computerChoice) {
     console.log("Computer: " + computerChoice);
 
     if (userChoice === computerChoice) {
-        return "It's a draw!";
+        console.log("It's a draw!");
+        return drawCounter++;
     } else if (userChoice === 'paper' && computerChoice === "rock") {
-        return "You win";
+        console.log( "You win");
+        return counter++;
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
-        return "You lose";
+        console.log("You lose");
+        return computerCounter++;
     } else if (userChoice === 'rock' && computerChoice === "paper") {
-        return "You lose";
+        console.log("You lose");
+        return computerCounter++;
     }else if (userChoice === 'rock' && computerChoice === "scissors") {
-        return "You win";
+        console.log( "You win");
+        return counter++;
     }else if (userChoice === 'scissors' && computerChoice === "rock") {
-        return "You lose";
+        console.log("You lose");
+        return computerCounter++;
     }else if (userChoice === 'scissors' && computerChoice === "paper") {
-        return "You win";
+        console.log( "You win");
+        return counter++;
     } else {
         return "You need to enter the correct object"
     }
@@ -38,13 +45,28 @@ function play(userChoice, computerChoice) {
 
 const userChoice = "rock";
 const computerChoice = getComputerChoice();
+let counter = 0;
+let computerCounter = 0;
+let drawCounter = 0;
 
 
 function game() {
     for (let i = 0; i < 5; i++) {
         console.log(play(prompt("choose", "rock, paper or scissors"), getComputerChoice()));
-
     }
+    if (computerCounter > counter) {
+        console.log("Computer wins obviously!");
+        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
+    } else if (computerCounter < counter) {
+        console.log("You win clever clogs!");
+        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
+    } else {
+        console.log("It's a draw! You are both the bestest!");
+        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
+    }  
+    counter = 0;
+    computerCounter = 0;
+    drawCounter = 0;
 }
 
 game();
