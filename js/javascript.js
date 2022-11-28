@@ -13,45 +13,152 @@ function getComputerChoice() {
 
 // function to play a round of rock,paper,scissors and log to console
 function play(userChoice, computerChoice) {
-    userChoice = userChoice.toLowerCase();
-    console.log("User: " + userChoice);
-    console.log("Computer: " + computerChoice);
+     
+     removelAllChildNodes(result);
+     removelAllChildNodes(runningTotal);
+
+     const user = document.createElement('p');
+     user.innerText = "You chose: " + userChoice;
+     result.appendChild(user);
+     const puter = document.createElement('p');
+     puter.innerText = "Computer chose: " + computerChoice;
+     result.appendChild(puter);
+
+     const playerScore = document.createElement('p');
+     playerScore.innerText = "Player total: " + counter;
+     runningTotal.appendChild(playerScore);
+ 
+     const computerScore = document.createElement('p');
+     computerScore.innerText = "Computer total: " + computerCounter;
+     runningTotal.appendChild(computerScore);
+
 
     if (userChoice === computerChoice) {
-        console.log("It's a draw!");
-        return drawCounter++;
+        const draw = document.createElement('p');
+        draw.innerText = "It's a draw!";
+        result.appendChild(draw);
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
     } else if (userChoice === 'paper' && computerChoice === "rock") {
-        console.log( "You win");
-        return counter++;
+        const win = document.createElement('p');
+        win.innerText = "You won!";
+        result.appendChild(win);
+        ++counter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (counter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "You are the victor!";
+            result.appendChild(victor);
+        }
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
-        console.log("You lose");
-        return computerCounter++;
+        const lose = document.createElement('p');
+        lose.innerText = "You lose!";
+        result.appendChild(lose);
+        ++computerCounter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (computerCounter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "Bleep boop! Machines are ever victorious!";
+            result.appendChild(victor);
+        }
     } else if (userChoice === 'rock' && computerChoice === "paper") {
-        console.log("You lose");
-        return computerCounter++;
+        const lose = document.createElement('p');
+        lose.innerText = "You lose!";
+        result.appendChild(lose);
+        ++computerCounter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (computerCounter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "Bleep boop! Machines are ever victorious!";
+            result.appendChild(victor);
+        }
     }else if (userChoice === 'rock' && computerChoice === "scissors") {
-        console.log( "You win");
-        return counter++;
+        const win = document.createElement('p');
+        win.innerText = "You won!";
+        result.appendChild(win);;
+        ++counter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (counter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "You are the victor!";
+            result.appendChild(victor);
+        }
     }else if (userChoice === 'scissors' && computerChoice === "rock") {
-        console.log("You lose");
-        return computerCounter++;
+        const lose = document.createElement('p');
+        lose.innerText = "You lose!";
+        result.appendChild(lose);
+        ++computerCounter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (computerCounter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "Bleep boop! Machines are ever victorious!";
+            result.appendChild(victor);
+        }
     }else if (userChoice === 'scissors' && computerChoice === "paper") {
-        console.log( "You win");
-        return counter++;
-    } else {
-        return "You need to enter the correct object"
+        const win = document.createElement('p');
+        win.innerText = "You won!";
+        result.appendChild(win);;
+        ++counter;
+        playerScore.innerText = "Player total: " + counter;
+        computerScore.innerText = "Computer total: " + computerCounter;
+        if (counter === 5) {
+            removelAllChildNodes(result);
+            const victor = document.createElement('h1');
+            victor.innerText = "You are the victor!";
+            result.appendChild(victor);
+        }
+    }
+    
+};
+
+// setting up the required variables and counters to keep score.
+let counter = 0;
+let computerCounter = 0;
+
+// adding event listeners to the buttons to play round when user chooses r/p or s
+const btn = document.querySelectorAll('button');
+console.log(btn);
+for (i of btn) {
+    i.addEventListener('click', function(e){
+        userChoice = e.target.id;
+        play(userChoice, getComputerChoice())
+    });
+}
+
+// create div's to display results
+const result = document.createElement('div');
+result.style.cssText = 'background: blue;';
+result.setAttribute('id', 'result');
+const body = document.querySelector('body');
+body.appendChild(result);
+
+const runningTotal = document.createElement('div');
+runningTotal.style.cssText = 'background: gray;';
+runningTotal.setAttribute('id', 'runningTotal');
+body.appendChild(runningTotal);
+
+
+// function to remove child nodes
+
+function removelAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
     }
 }
 
-// setting up the required variables and counters to keep score.
-const userChoice = "rock";
-const computerChoice = getComputerChoice();
-let counter = 0;
-let computerCounter = 0;
-let drawCounter = 0;
 
-// function to loop through 5 rounds and declare win, lose or draw. Resets counters at end. 
-function game() {
+/* // function to loop through 5 rounds and declare win, lose or draw. Resets counters at end. 
+ function game() {
     for (let i = 0; i < 5; i++) {
         console.log(play(prompt("choose", "rock, paper or scissors"), getComputerChoice()));
     }
@@ -69,5 +176,7 @@ function game() {
     computerCounter = 0;
     drawCounter = 0;
 }
+
+
 // call the above game function
-game();
+game(); */

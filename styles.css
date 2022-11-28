@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+}
+
+button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    border: 2px solid gray;
+    margin: 1rem;
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+#rock {
+    background-image: url('./img/rocks-3989783_640.png'),
+    linear-gradient(to right, red,orange, yellow);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#paper {
+    background-image: url('./img/origami-3184786_640.png'),
+    linear-gradient(to right, yellow,green,blue);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#scissors {
+    background-image: url('./img/scissors-1297454_640.png'),
+    linear-gradient(to right,blue,indigo,violet);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
