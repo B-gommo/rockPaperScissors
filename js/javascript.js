@@ -1,3 +1,71 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function delayedTitleChallenge() {
+const header = document.querySelector('header');
+const body = document.querySelector('body');
+const firstSentence = document.createElement('h1');
+firstSentence.innerText = "You are challenged to the most noble of duels!";
+firstSentence.style.color = 'white';
+header.appendChild(firstSentence);
+const cat = document.createElement('img');
+cat.setAttribute('src', './img/cat.png');
+cat.style.cssText = 'position: absolute; bottom: -65px; margin-left: -391px; left: 50%;';
+body.appendChild(cat);
+await sleep(3000);
+header.removeChild(header.firstChild);
+await sleep(700);
+const secondSentence = document.createElement('h1');
+secondSentence.innerText = "First to 5 wins all!";
+secondSentence.style.color = 'white';
+header.appendChild(secondSentence);
+await sleep(3000);
+header.removeChild(header.firstChild);
+await sleep(700);
+const thirdSentence = document.createElement('h1');
+thirdSentence.innerText = "In a game of";
+thirdSentence.style.color = 'white';
+header.appendChild(thirdSentence);
+await sleep(2000);
+header.removeChild(header.firstChild);
+cat.classList.toggle('fadeOut');
+await sleep(500);
+const firstTitle = document.createElement('h1');
+firstTitle.innerText = "ROCK ";
+firstTitle.style.cssText ='color: white; padding: 0px 2rem';
+header.appendChild(firstTitle);
+const rock = document.querySelector('#rock');
+rock.classList.toggle('hide');
+await sleep(1500);
+const secondTitle = document.createElement('h1');
+secondTitle.innerText = "PAPER ";
+secondTitle.style.cssText ='color: white; padding: 0px 2rem';
+header.appendChild(secondTitle);
+const paper = document.querySelector('#paper');
+paper.classList.toggle('hide');
+await sleep(1500);
+const thirdTitle = document.createElement('h1');
+thirdTitle.innerText = "SCISSORS";
+thirdTitle.style.cssText ='color: white; padding: 0px 2rem';
+header.appendChild(thirdTitle);
+const scissors = document.querySelector('#scissors');
+scissors.classList.toggle('hide');
+
+
+
+}
+
+
+delayedTitleChallenge();
+
+
+
+
+
+
+
+
 // function to randomise the coputer choice of rock paper or scissors.
 function getComputerChoice() {
     random = Math.floor(Math.random()*3);

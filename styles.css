@@ -10,6 +10,13 @@ button {
     margin: 1rem;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
 #btnContainer {
     display: flex;
     justify-content: center;
@@ -25,6 +32,17 @@ button {
     background-image: linear-gradient(to bottom, red,orange, yellow,green,blue,indigo,violet);
 }
 
+.fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s linear 5000s, opacity 5000ms;
+}
+
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 5000ms, opacity 5000ms;
+  }
 
 #rock {
     background-image: url('./img/rocks-3989783_640.png'),
