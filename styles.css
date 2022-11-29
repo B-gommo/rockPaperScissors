@@ -13,6 +13,16 @@ button {
 #btnContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.hide {
+    display: none;
+}
+
+.rainbow {
+    background-image: linear-gradient(to bottom, red,orange, yellow,green,blue,indigo,violet);
 }
 
 

@@ -1,4 +1,3 @@
-console.log("Hello console, lets play a game!");
 // function to randomise the coputer choice of rock paper or scissors.
 function getComputerChoice() {
     random = Math.floor(Math.random()*3);
@@ -24,6 +23,7 @@ function play(userChoice, computerChoice) {
      puter.innerText = "Computer chose: " + computerChoice;
      result.appendChild(puter);
 
+     const btns = document.querySelectorAll('button')
      const playerScore = document.createElement('p');
      playerScore.innerText = "Player total: " + counter;
      runningTotal.appendChild(playerScore);
@@ -51,6 +51,36 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "You are the victor!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+             
         }
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
         const lose = document.createElement('p');
@@ -64,6 +94,36 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "Bleep boop! Machines are ever victorious!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+            
         }
     } else if (userChoice === 'rock' && computerChoice === "paper") {
         const lose = document.createElement('p');
@@ -77,6 +137,36 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "Bleep boop! Machines are ever victorious!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+            
         }
     }else if (userChoice === 'rock' && computerChoice === "scissors") {
         const win = document.createElement('p');
@@ -90,6 +180,36 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "You are the victor!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+            
         }
     }else if (userChoice === 'scissors' && computerChoice === "rock") {
         const lose = document.createElement('p');
@@ -103,6 +223,36 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "Bleep boop! Machines are ever victorious!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+            
         }
     }else if (userChoice === 'scissors' && computerChoice === "paper") {
         const win = document.createElement('p');
@@ -116,8 +266,38 @@ function play(userChoice, computerChoice) {
             const victor = document.createElement('h1');
             victor.innerText = "You are the victor!";
             result.appendChild(victor);
+            const btns = document.querySelectorAll('button');
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            const rematch = document.createElement('button');
+            rematch.innerText = "Rematch?";
+            rematch.classList.add('rainbow');
+            const btnContainer = document.querySelector('#btnContainer');
+            btnContainer.appendChild(rematch);
+            const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            const playerScore = document.createElement('p');
+            playerScore.innerText = "Player total: " + counter;
+            runningTotal.appendChild(playerScore);
+ 
+            const computerScore = document.createElement('p');
+            computerScore.innerText = "Computer total: " + computerCounter;
+            runningTotal.appendChild(computerScore);
+
+            });
+            
         }
-    }
+    } 
     
 };
 
@@ -127,13 +307,25 @@ let computerCounter = 0;
 
 // adding event listeners to the buttons to play round when user chooses r/p or s
 const btn = document.querySelectorAll('button');
-console.log(btn);
 for (i of btn) {
     i.addEventListener('click', function(e){
         userChoice = e.target.id;
         play(userChoice, getComputerChoice())
     });
 }
+
+// event listener for reset button
+/*
+const replay = document.getElementsByClassName('rainbow');
+            replay[0].addEventListener('click', function(e) {
+            remplay.classList.add('hide');
+                for (i of btns) {
+                i.classList.toggle('hide');
+            }
+
+            });*/
+
+
 
 // create div's to display results
 const result = document.createElement('div');
