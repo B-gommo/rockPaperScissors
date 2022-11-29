@@ -1,5 +1,10 @@
 body {
     background-color: black;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+h1 {
+    font-size: 48px;
 }
 
 button {
@@ -32,11 +37,6 @@ header {
     background-image: linear-gradient(to bottom, red,orange, yellow,green,blue,indigo,violet);
 }
 
-.fadeIn {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 1s linear 5000s, opacity 5000ms;
-}
 
 .fadeOut {
     visibility: hidden;
