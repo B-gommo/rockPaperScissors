@@ -13,6 +13,8 @@ button {
     border-radius: 50px;
     border: 2px solid gray;
     margin: 1rem;
+    font-family: 'Cabin Sketch', cursive;
+    cursor: pointer;
 }
 
 header {

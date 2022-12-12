@@ -96,6 +96,10 @@ function play(userChoice, computerChoice) {
     playerScore.innerText = "Player total: " + counter;
     runningTotal.appendChild(playerScore);
 
+    const draws = document.createElement('p');
+    playerScore.innerText = "Number of draws: " + drawCounter;
+    runningTotal.appendChild(draws);
+
     const computerScore = document.createElement('p');
     computerScore.innerText = "Kitty total: " + computerCounter;
     runningTotal.appendChild(computerScore);
@@ -104,13 +108,14 @@ function play(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
         const draw = document.createElement('p');
         draw.innerText = "It's a draw!";
-        result.appendChild(draw);
+        result.insertBefore(draw, puter);
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
+        ++drawCounter;
     } else if (userChoice === 'paper' && computerChoice === "rock") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        result.appendChild(win);
+        result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -125,6 +130,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -137,11 +143,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Computer total: " + computerCounter;
@@ -153,7 +164,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        result.appendChild(lose);
+        result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -168,6 +179,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -180,11 +192,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Kitty total: " + computerCounter;
@@ -196,7 +213,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "paper") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        result.appendChild(lose);
+        result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -211,6 +228,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem;'
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -223,11 +241,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Kitty total: " + computerCounter;
@@ -239,7 +262,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "scissors") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        result.appendChild(win);;
+        result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -254,6 +277,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -266,11 +290,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Kitty total: " + computerCounter;
@@ -282,7 +311,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "rock") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        result.appendChild(lose);
+        result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -297,6 +326,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -309,11 +339,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Kitty total: " + computerCounter;
@@ -325,7 +360,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "paper") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        result.appendChild(win);;
+        result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         computerScore.innerText = "Kitty total: " + computerCounter;
@@ -340,6 +375,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
+            rematch.style.cssText = 'font-size: 2rem';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -352,11 +388,16 @@ function play(userChoice, computerChoice) {
                 }
                 counter = 0;
                 computerCounter = 0;
+                drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
                 const playerScore = document.createElement('p');
                 playerScore.innerText = "Player total: " + counter;
                 runningTotal.appendChild(playerScore);
+
+                const draws = document.createElement('p');
+                playerScore.innerText = "Number of draws: " + drawCounter;
+                runningTotal.appendChild(draws);
 
                 const computerScore = document.createElement('p');
                 computerScore.innerText = "Kitty total: " + computerCounter;
@@ -372,6 +413,7 @@ function play(userChoice, computerChoice) {
 // setting up the required variables and counters to keep score.
 let counter = 0;
 let computerCounter = 0;
+let drawCounter = 0;
 
 // adding event listeners to the buttons to play round when user chooses r/p or s
 const btn = document.querySelectorAll('button');
@@ -381,6 +423,22 @@ for (i of btn) {
         play(userChoice, getComputerChoice())
     });
 }
+const mouseOver = document.querySelectorAll('button');
+for (i of btn) {
+    i.addEventListener('mouseover', function (e) {
+        e.target.style.cssText = 'border: 3px solid #85FF33; margin-top: 20px;';
+
+    });
+}
+
+const mouseOut = document.querySelectorAll('button');
+for (i of btn) {
+    i.addEventListener('mouseout', function (e) {
+        e.target.style.cssText = 'border: 2px solid grey; margin-top: 16px;';
+
+    });
+}
+
 
 // event listener for reset button
 /*
@@ -397,13 +455,13 @@ const replay = document.getElementsByClassName('rainbow');
 
 // create div's to display results
 const result = document.createElement('div');
-result.style.cssText = 'background: olive;';
+result.style.cssText = 'background: olive; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px;';
 result.setAttribute('id', 'result');
 const body = document.querySelector('body');
 body.appendChild(result);
 
 const runningTotal = document.createElement('div');
-runningTotal.style.cssText = 'background: gray;';
+runningTotal.style.cssText = 'background: gray; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
 runningTotal.setAttribute('id', 'runningTotal');
 body.appendChild(runningTotal);
 
