@@ -11,7 +11,7 @@ async function delayedTitleChallenge() {
     header.appendChild(firstSentence);
     const cat = document.createElement('img');
     cat.setAttribute('src', './img/cat.png');
-    cat.style.cssText = 'position: absolute; bottom: -65px; margin-left: -391px; left: 50%;';
+    cat.setAttribute('id', 'cat');
     body.appendChild(cat);
     await sleep(3000);
     header.removeChild(header.firstChild);
