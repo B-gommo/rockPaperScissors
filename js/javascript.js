@@ -97,7 +97,7 @@ function play(userChoice, computerChoice) {
     runningTotal.appendChild(playerScore);
 
     const draws = document.createElement('p');
-    playerScore.innerText = "Number of draws: " + drawCounter;
+    draws.innerText = "Number of draws: " + drawCounter;
     runningTotal.appendChild(draws);
 
     const computerScore = document.createElement('p');
@@ -109,15 +109,17 @@ function play(userChoice, computerChoice) {
         const draw = document.createElement('p');
         draw.innerText = "It's a draw!";
         result.insertBefore(draw, puter);
-        playerScore.innerText = "Player total: " + counter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
         ++drawCounter;
+        playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
+        computerScore.innerText = "Kitty total: " + computerCounter;
     } else if (userChoice === 'paper' && computerChoice === "rock") {
         const win = document.createElement('p');
         win.innerText = "You won!";
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (counter === 5) {
             removelAllChildNodes(result);
@@ -146,18 +148,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Computer total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
@@ -167,6 +157,7 @@ function play(userChoice, computerChoice) {
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (computerCounter === 5) {
             removelAllChildNodes(result);
@@ -195,18 +186,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Kitty total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
@@ -216,6 +195,7 @@ function play(userChoice, computerChoice) {
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (computerCounter === 5) {
             removelAllChildNodes(result);
@@ -244,18 +224,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Kitty total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
@@ -265,6 +233,7 @@ function play(userChoice, computerChoice) {
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (counter === 5) {
             removelAllChildNodes(result);
@@ -293,18 +262,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Kitty total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
@@ -314,6 +271,7 @@ function play(userChoice, computerChoice) {
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (computerCounter === 5) {
             removelAllChildNodes(result);
@@ -342,18 +300,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Kitty total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
@@ -363,6 +309,7 @@ function play(userChoice, computerChoice) {
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
+        draws.innerText = "Number of draws: " + drawCounter;
         computerScore.innerText = "Kitty total: " + computerCounter;
         if (counter === 5) {
             removelAllChildNodes(result);
@@ -391,18 +338,6 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
-                const playerScore = document.createElement('p');
-                playerScore.innerText = "Player total: " + counter;
-                runningTotal.appendChild(playerScore);
-
-                const draws = document.createElement('p');
-                playerScore.innerText = "Number of draws: " + drawCounter;
-                runningTotal.appendChild(draws);
-
-                const computerScore = document.createElement('p');
-                computerScore.innerText = "Kitty total: " + computerCounter;
-                runningTotal.appendChild(computerScore);
-
             });
 
         }
