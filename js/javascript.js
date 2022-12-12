@@ -86,28 +86,34 @@ function play(userChoice, computerChoice) {
 
     const user = document.createElement('p');
     user.innerText = "You chose: " + userChoice;
+    user.style.padding = '1rem';
     result.appendChild(user);
     const puter = document.createElement('p');
     puter.innerText = "Kitty chose: " + computerChoice;
+    puter.style.padding = '1rem';
     result.appendChild(puter);
 
     const btns = document.querySelectorAll('button')
     const playerScore = document.createElement('p');
     playerScore.innerText = "Player total: " + counter;
+    playerScore.style.padding = '1rem';
     runningTotal.appendChild(playerScore);
 
     const draws = document.createElement('p');
     draws.innerText = "Number of draws: " + drawCounter;
+    draws.style.paddingTop = '1rem';
     runningTotal.appendChild(draws);
 
     const computerScore = document.createElement('p');
     computerScore.innerText = "Kitty total: " + computerCounter;
+    computerScore.style.padding = '1rem';
     runningTotal.appendChild(computerScore);
 
 
     if (userChoice === computerChoice) {
         const draw = document.createElement('p');
         draw.innerText = "It's a draw!";
+        draw.style.paddingTop = '1rem';
         result.insertBefore(draw, puter);
         ++drawCounter;
         playerScore.innerText = "Player total: " + counter;
@@ -116,6 +122,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'paper' && computerChoice === "rock") {
         const win = document.createElement('p');
         win.innerText = "You won!";
+        win.style.paddingTop = '1rem';
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
@@ -154,6 +161,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
+        lose.style.paddingTop = '1rem';
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
@@ -192,6 +200,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "paper") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
+        lose.style.paddingTop = '1rem';
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
@@ -230,6 +239,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "scissors") {
         const win = document.createElement('p');
         win.innerText = "You won!";
+        win.style.paddingTop = '1rem';
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
@@ -268,6 +278,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "rock") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
+        lose.style.paddingTop = '1rem';
         result.insertBefore(lose, puter);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
@@ -306,6 +317,7 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "paper") {
         const win = document.createElement('p');
         win.innerText = "You won!";
+        win.style.paddingTop = '1rem';
         result.insertBefore(win, puter);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
