@@ -84,14 +84,24 @@ function play(userChoice, computerChoice) {
     removelAllChildNodes(result);
     removelAllChildNodes(runningTotal);
 
+    const playerBox = document.createElement('div');
+    playerBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: olive; border: 2px solid grey; border-radius: 35px; padding: 1rem;';
     const user = document.createElement('p');
-    user.innerText = "You chose: " + userChoice;
-    user.style.padding = '1rem';
-    result.appendChild(user);
+    user.innerText = "You chose:";
+    const userChoiceImg = document.createElement('div');
+    userChoiceImg.classList.add(userChoice);
+    playerBox.appendChild(user);
+    playerBox.appendChild(userChoiceImg);
+    result.appendChild(playerBox);
+    const kittyBox = document.createElement('div');
+    kittyBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: olive; border: 2px solid grey; border-radius: 35px; padding: 1rem;';
     const puter = document.createElement('p');
-    puter.innerText = "Kitty chose: " + computerChoice;
-    puter.style.padding = '1rem';
-    result.appendChild(puter);
+    puter.innerText = "Kitty chose:";
+    const kittyChoiceImg = document.createElement('div');
+    kittyChoiceImg.classList.add(computerChoice);
+    kittyBox.appendChild(puter);
+    kittyBox.appendChild(kittyChoiceImg);
+    result.appendChild(kittyBox);
 
     const btns = document.querySelectorAll('button')
     const playerScore = document.createElement('p');
@@ -114,7 +124,7 @@ function play(userChoice, computerChoice) {
         const draw = document.createElement('p');
         draw.innerText = "It's a draw!";
         draw.style.paddingTop = '1rem';
-        result.insertBefore(draw, puter);
+        result.insertBefore(draw, kittyBox);
         ++drawCounter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -123,7 +133,7 @@ function play(userChoice, computerChoice) {
         const win = document.createElement('p');
         win.innerText = "You won!";
         win.style.paddingTop = '1rem';
-        result.insertBefore(win, puter);
+        result.insertBefore(win, kittyBox);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -162,7 +172,7 @@ function play(userChoice, computerChoice) {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
         lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, puter);
+        result.insertBefore(lose, kittyBox);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -201,7 +211,7 @@ function play(userChoice, computerChoice) {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
         lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, puter);
+        result.insertBefore(lose, kittyBox);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -240,7 +250,7 @@ function play(userChoice, computerChoice) {
         const win = document.createElement('p');
         win.innerText = "You won!";
         win.style.paddingTop = '1rem';
-        result.insertBefore(win, puter);
+        result.insertBefore(win, kittyBox);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -279,7 +289,7 @@ function play(userChoice, computerChoice) {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
         lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, puter);
+        result.insertBefore(lose, kittyBox);
         ++computerCounter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -318,7 +328,7 @@ function play(userChoice, computerChoice) {
         const win = document.createElement('p');
         win.innerText = "You won!";
         win.style.paddingTop = '1rem';
-        result.insertBefore(win, puter);
+        result.insertBefore(win, kittyBox);
         ++counter;
         playerScore.innerText = "Player total: " + counter;
         draws.innerText = "Number of draws: " + drawCounter;
@@ -402,7 +412,7 @@ const replay = document.getElementsByClassName('rainbow');
 
 // create div's to display results
 const result = document.createElement('div');
-result.style.cssText = 'background: olive; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px;';
+result.style.cssText = 'background: black; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px;';
 result.setAttribute('id', 'result');
 const body = document.querySelector('body');
 body.appendChild(result);

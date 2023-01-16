@@ -54,6 +54,18 @@ header {
     background-position: center;
 }
 
+.rock {
+    background-image: url('./img/rocks-3989783_640.png'),
+    linear-gradient(to right, red,orange, yellow);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 35px;
+}
+
 #paper {
     background-image: url('./img/origami-3184786_640.png'),
     linear-gradient(to right, yellow,green,blue);
@@ -61,12 +73,38 @@ header {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.paper {
+    background-image: url('./img/origami-3184786_640.png'),
+    linear-gradient(to right, yellow,green,blue);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 35px;
+}
+
+
 #scissors {
     background-image: url('./img/scissors-1297454_640.png'),
     linear-gradient(to right,blue,indigo,violet);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.scissors {
+    background-image: url('./img/scissors-1297454_640.png'),
+    linear-gradient(to right,blue,indigo,violet);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 35px;
 }
 
 @media only screen and (max-width: 600px) {
