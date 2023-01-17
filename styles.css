@@ -24,6 +24,10 @@ header {
     height: 200px;
 }
 
+p {
+    text-align: center;
+}
+
 #btnContainer {
     display: flex;
     justify-content: center;
@@ -46,64 +50,75 @@ header {
     transition: visibility 0s linear 5000ms, opacity 5000ms;
   }
 
+.flash {
+    animation: blinker 0.5s linear 1;
+  }
+  
+@keyframes blinker {
+    50% {
+      opacity: 0;
+      transform: rotate(1turn);
+    }
+}
+
 #rock {
-    background-image: url('./img/rocks-3989783_640.png'),
-    linear-gradient(to right, red,orange, yellow);
+    background-color: #FFCA3A;
+    background-image: url('./img/rocks-3989783_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .rock {
-    background-image: url('./img/rocks-3989783_640.png'),
-    linear-gradient(to right, red,orange, yellow);
+    background-color: #FFCA3A;
+    background-image: url('./img/rocks-3989783_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 100px;
     height: 100px;
-    border: 2px solid gray;
+    border: 2px solid white;
     border-radius: 35px;
 }
 
 #paper {
-    background-image: url('./img/origami-3184786_640.png'),
-    linear-gradient(to right, yellow,green,blue);
+    background-color: #FF4000;
+    background-image: url('./img/origami-3184786_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .paper {
-    background-image: url('./img/origami-3184786_640.png'),
-    linear-gradient(to right, yellow,green,blue);
+    background-color: #FF4000;
+    background-image: url('./img/origami-3184786_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 100px;
     height: 100px;
-    border: 2px solid gray;
+    border: 2px solid white;
     border-radius: 35px;
 }
 
 
 #scissors {
-    background-image: url('./img/scissors-1297454_640.png'),
-    linear-gradient(to right,blue,indigo,violet);
+    background-color: #7A9B76;
+    background-image: url('./img/scissors-1297454_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .scissors {
-    background-image: url('./img/scissors-1297454_640.png'),
-    linear-gradient(to right,blue,indigo,violet);
+    background-color: #7A9B76;
+    background-image: url('./img/scissors-1297454_640.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 100px;
     height: 100px;
-    border: 2px solid gray;
+    border: 2px solid white;
     border-radius: 35px;
 }
 

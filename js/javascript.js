@@ -84,8 +84,9 @@ function play(userChoice, computerChoice) {
     removelAllChildNodes(result);
     removelAllChildNodes(runningTotal);
 
+
     const playerBox = document.createElement('div');
-    playerBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: olive; border: 2px solid grey; border-radius: 35px; padding: 1rem;';
+    playerBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
     const user = document.createElement('p');
     user.innerText = "You chose:";
     const userChoiceImg = document.createElement('div');
@@ -94,7 +95,7 @@ function play(userChoice, computerChoice) {
     playerBox.appendChild(userChoiceImg);
     result.appendChild(playerBox);
     const kittyBox = document.createElement('div');
-    kittyBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: olive; border: 2px solid grey; border-radius: 35px; padding: 1rem;';
+    kittyBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
     const puter = document.createElement('p');
     puter.innerText = "Kitty chose:";
     const kittyChoiceImg = document.createElement('div');
@@ -103,41 +104,66 @@ function play(userChoice, computerChoice) {
     kittyBox.appendChild(kittyChoiceImg);
     result.appendChild(kittyBox);
 
-    const btns = document.querySelectorAll('button')
+    const resultBox = document.createElement('div');
+    resultBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    result.insertBefore(resultBox, kittyBox);
+
+    const btns = document.querySelectorAll('button');
+
+    const playerTotal = document.createElement('div');
+    playerTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    const playerCounter = document.createElement('div');
+    playerCounter.innerText = counter;
+    playerTotal.appendChild(playerCounter);
+    runningTotal.appendChild(playerTotal);
+    const drawTotal = document.createElement('div');
+    drawTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    const drawsCounter = document.createElement('div');
+    drawsCounter.innerText = drawCounter;
+    drawTotal.appendChild(drawsCounter);
+    runningTotal.appendChild(drawTotal);
+    const kittyTotal = document.createElement('div');
+    kittyTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    const kittyCounter = document.createElement('div');
+    kittyCounter.innerText = computerCounter;
+    kittyTotal.appendChild(kittyCounter);
+    runningTotal.appendChild(kittyTotal);
+
+
+
     const playerScore = document.createElement('p');
-    playerScore.innerText = "Player total: " + counter;
-    playerScore.style.padding = '1rem';
-    runningTotal.appendChild(playerScore);
+    playerScore.innerText = "Player total:";
+    playerTotal.insertBefore(playerScore, playerCounter);
 
     const draws = document.createElement('p');
-    draws.innerText = "Number of draws: " + drawCounter;
-    draws.style.paddingTop = '1rem';
-    runningTotal.appendChild(draws);
+    draws.innerText = "Number of draws:";
+    drawTotal.insertBefore(draws, drawsCounter);
 
     const computerScore = document.createElement('p');
-    computerScore.innerText = "Kitty total: " + computerCounter;
-    computerScore.style.padding = '1rem';
-    runningTotal.appendChild(computerScore);
+    computerScore.innerText = "Kitty total:";
+    kittyTotal.insertBefore(computerScore, kittyCounter);
 
 
     if (userChoice === computerChoice) {
         const draw = document.createElement('p');
         draw.innerText = "It's a draw!";
-        draw.style.paddingTop = '1rem';
-        result.insertBefore(draw, kittyBox);
+        draw.classList.toggle('flash');
+        resultBox.appendChild(draw);
         ++drawCounter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        drawsCounter.classList.toggle('flash');
     } else if (userChoice === 'paper' && computerChoice === "rock") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        win.style.paddingTop = '1rem';
-        result.insertBefore(win, kittyBox);
+        win.classList.toggle('flash');
+        resultBox.appendChild(win);
         ++counter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        playerCounter.classList.toggle('flash');
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -171,12 +197,13 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, kittyBox);
+        lose.classList.toggle('flash');
+        resultBox.appendChild(lose);
         ++computerCounter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        kittyCounter.classList.toggle('flash');
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -210,12 +237,13 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "paper") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, kittyBox);
+        lose.classList.toggle('flash');
+        resultBox.appendChild(lose);
         ++computerCounter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        kittyCounter.classList.toggle('flash');
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -249,12 +277,13 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'rock' && computerChoice === "scissors") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        win.style.paddingTop = '1rem';
-        result.insertBefore(win, kittyBox);
+        win.classList.toggle('flash');
+        resultBox.appendChild(win);
         ++counter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        playerCounter.classList.toggle('flash');
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -288,12 +317,13 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "rock") {
         const lose = document.createElement('p');
         lose.innerText = "You lose!";
-        lose.style.paddingTop = '1rem';
-        result.insertBefore(lose, kittyBox);
+        lose.classList.toggle('flash');
+        resultBox.appendChild(lose);
         ++computerCounter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        kittyCounter.classList.toggle('flash');
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -327,12 +357,13 @@ function play(userChoice, computerChoice) {
     } else if (userChoice === 'scissors' && computerChoice === "paper") {
         const win = document.createElement('p');
         win.innerText = "You won!";
-        win.style.paddingTop = '1rem';
-        result.insertBefore(win, kittyBox);
+        win.classList.toggle('flash');
+        resultBox.appendChild(win);
         ++counter;
-        playerScore.innerText = "Player total: " + counter;
-        draws.innerText = "Number of draws: " + drawCounter;
-        computerScore.innerText = "Kitty total: " + computerCounter;
+        playerCounter.innerText = counter;
+        drawsCounter.innerText = drawCounter;
+        kittyCounter.innerText = computerCounter;
+        playerCounter.classList.toggle('flash');
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
@@ -412,15 +443,17 @@ const replay = document.getElementsByClassName('rainbow');
 
 // create div's to display results
 const result = document.createElement('div');
-result.style.cssText = 'background: black; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px;';
+result.style.cssText = 'background: black; color: white; border: 2px solid white; display: flex; justify-content: center; width: 90%; margin: 0 auto; border-radius: 10px;';
 result.setAttribute('id', 'result');
 const body = document.querySelector('body');
 body.appendChild(result);
 
 const runningTotal = document.createElement('div');
-runningTotal.style.cssText = 'background: gray; display: flex; justify-content: space-around; width: 80%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
+runningTotal.style.cssText = 'background: black; border: 2px solid white; display: flex; justify-content: space-around; width: 90%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
 runningTotal.setAttribute('id', 'runningTotal');
 body.appendChild(runningTotal);
+
+
 
 
 // function to remove child nodes
