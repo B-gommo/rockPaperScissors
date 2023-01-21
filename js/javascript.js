@@ -176,7 +176,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
@@ -218,7 +218,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
@@ -260,7 +260,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;'
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
@@ -302,7 +302,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
@@ -344,7 +344,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
@@ -386,7 +386,7 @@ function play(userChoice, computerChoice) {
                 i.classList.toggle('hide');
             }
             const rematch = document.createElement('button');
-            rematch.innerText = "Rematch?";
+            rematch.innerText = "Again?";
             rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
