@@ -33,21 +33,21 @@ async function delayedTitleChallenge() {
     await sleep(500);
     const firstTitle = document.createElement('h1');
     firstTitle.innerText = "ROCK ";
-    firstTitle.style.cssText = 'color: white; padding: 0px 2rem';
+    firstTitle.style.cssText = 'color: white;';
     header.appendChild(firstTitle);
     const rock = document.querySelector('#rock');
     rock.classList.toggle('hide');
     await sleep(1500);
     const secondTitle = document.createElement('h1');
     secondTitle.innerText = "PAPER ";
-    secondTitle.style.cssText = 'color: white; padding: 0px 2rem';
+    secondTitle.style.cssText = 'color: white;';
     header.appendChild(secondTitle);
     const paper = document.querySelector('#paper');
     paper.classList.toggle('hide');
     await sleep(1500);
     const thirdTitle = document.createElement('h1');
     thirdTitle.innerText = "SCISSORS";
-    thirdTitle.style.cssText = 'color: white; padding: 0px 2rem';
+    thirdTitle.style.cssText = 'color: white;';
     header.appendChild(thirdTitle);
     const scissors = document.querySelector('#scissors');
     scissors.classList.toggle('hide');
@@ -83,10 +83,12 @@ function play(userChoice, computerChoice) {
 
     removelAllChildNodes(result);
     removelAllChildNodes(runningTotal);
+    result.style.border = '2px solid white';
+    runningTotal.style.border = '2px solid white';
 
 
     const playerBox = document.createElement('div');
-    playerBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    playerBox.style.cssText = 'flex: 1; display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
     const user = document.createElement('p');
     user.innerText = "You chose:";
     const userChoiceImg = document.createElement('div');
@@ -95,7 +97,7 @@ function play(userChoice, computerChoice) {
     playerBox.appendChild(userChoiceImg);
     result.appendChild(playerBox);
     const kittyBox = document.createElement('div');
-    kittyBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    kittyBox.style.cssText = 'flex: 1; display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
     const puter = document.createElement('p');
     puter.innerText = "Kitty chose:";
     const kittyChoiceImg = document.createElement('div');
@@ -105,7 +107,7 @@ function play(userChoice, computerChoice) {
     result.appendChild(kittyBox);
 
     const resultBox = document.createElement('div');
-    resultBox.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    resultBox.style.cssText = 'flex: 2; display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
     result.insertBefore(resultBox, kittyBox);
 
     const btns = document.querySelectorAll('button');
@@ -167,7 +169,7 @@ function play(userChoice, computerChoice) {
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!";
+            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -175,7 +177,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem';
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -191,6 +193,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -207,7 +211,7 @@ function play(userChoice, computerChoice) {
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!";
+            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -215,7 +219,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem';
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -231,6 +235,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -247,7 +253,7 @@ function play(userChoice, computerChoice) {
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!";
+            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -255,7 +261,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem;'
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;'
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -271,6 +277,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -287,7 +295,7 @@ function play(userChoice, computerChoice) {
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!";
+            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -295,7 +303,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem';
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -311,6 +319,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -327,7 +337,7 @@ function play(userChoice, computerChoice) {
         if (computerCounter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!";
+            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -335,7 +345,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem';
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -351,6 +361,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -367,7 +379,7 @@ function play(userChoice, computerChoice) {
         if (counter === 5) {
             removelAllChildNodes(result);
             const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!";
+            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
             result.appendChild(victor);
             const btns = document.querySelectorAll('button');
             for (i of btns) {
@@ -375,7 +387,7 @@ function play(userChoice, computerChoice) {
             }
             const rematch = document.createElement('button');
             rematch.innerText = "Rematch?";
-            rematch.style.cssText = 'font-size: 2rem';
+            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
             rematch.classList.add('rainbow');
             const btnContainer = document.querySelector('#btnContainer');
             btnContainer.appendChild(rematch);
@@ -391,6 +403,8 @@ function play(userChoice, computerChoice) {
                 drawCounter = 0;
                 removelAllChildNodes(runningTotal);
                 removelAllChildNodes(result);
+                result.style.border = 'none';
+                runningTotal.style.border = 'none';
             });
 
         }
@@ -422,7 +436,7 @@ for (i of btn) {
 const mouseOut = document.querySelectorAll('button');
 for (i of btn) {
     i.addEventListener('mouseout', function (e) {
-        e.target.style.cssText = 'border: 2px solid grey; margin-top: 16px;';
+        e.target.style.cssText = 'border: 2px solid white; margin-top: 16px;';
 
     });
 }
@@ -443,13 +457,13 @@ const replay = document.getElementsByClassName('rainbow');
 
 // create div's to display results
 const result = document.createElement('div');
-result.style.cssText = 'background: black; color: white; border: 2px solid white; display: flex; justify-content: center; width: 90%; margin: 0 auto; border-radius: 10px;';
+result.style.cssText = 'background: black; color: white; display: flex; justify-content: center; width: 96%; margin: 0 auto; border-radius: 10px; text-align: center;';
 result.setAttribute('id', 'result');
 const body = document.querySelector('body');
 body.appendChild(result);
 
 const runningTotal = document.createElement('div');
-runningTotal.style.cssText = 'background: black; border: 2px solid white; display: flex; justify-content: space-around; width: 90%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
+runningTotal.style.cssText = 'background: black; display: flex; justify-content: space-around; width: 96%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
 runningTotal.setAttribute('id', 'runningTotal');
 body.appendChild(runningTotal);
 
