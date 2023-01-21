@@ -56,15 +56,7 @@ async function delayedTitleChallenge() {
 
 }
 
-
 delayedTitleChallenge();
-
-
-
-
-
-
-
 
 // function to randomise the coputer choice of rock paper or scissors.
 function getComputerChoice() {
@@ -78,8 +70,97 @@ function getComputerChoice() {
     }
 }
 
+// setting up the required variables and counters to keep score.
+let counter = 0;
+let computerCounter = 0;
+let drawCounter = 0;
+
 // function to play a round of rock,paper,scissors and log to console
 function play(userChoice, computerChoice) {
+
+    function win() {
+        const win = document.createElement('p');
+        win.innerText = "You won!";
+        win.classList.toggle('flash');
+        resultBox.appendChild(win);
+        ++counter;
+        playerCounter.innerText = counter;
+        playerCounter.classList.toggle('flash');
+    }
+
+    function lose() {
+        const lose = document.createElement('p');
+        lose.innerText = "You lose!";
+        lose.classList.toggle('flash');
+        resultBox.appendChild(lose);
+        ++computerCounter;
+        kittyCounter.innerText = computerCounter;
+        kittyCounter.classList.toggle('flash');
+    }
+
+    function rematchWinner() {
+        removelAllChildNodes(result);
+        const victor = document.createElement('h1');
+        victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
+        result.appendChild(victor);
+        const btns = document.querySelectorAll('button');
+        for (i of btns) {
+            i.classList.toggle('hide');
+        }
+        const rematch = document.createElement('button');
+        rematch.innerText = "Again?";
+        rematch.style.cssText = 'font-size: 2rem; text-align: center;';
+        rematch.classList.add('rainbow');
+        const btnContainer = document.querySelector('#btnContainer');
+        btnContainer.appendChild(rematch);
+        const replay = document.getElementsByClassName('rainbow');
+        replay[0].addEventListener('click', function (e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            drawCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            result.style.border = 'none';
+            runningTotal.style.border = 'none';
+        });
+    }
+
+    function rematchLoser() {
+        removelAllChildNodes(result);
+        const victor = document.createElement('h1');
+        victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
+        result.appendChild(victor);
+        const btns = document.querySelectorAll('button');
+        for (i of btns) {
+            i.classList.toggle('hide');
+        }
+        const rematch = document.createElement('button');
+        rematch.innerText = "Again?";
+        rematch.style.cssText = 'font-size: 2rem; text-align: center;';
+        rematch.classList.add('rainbow');
+        const btnContainer = document.querySelector('#btnContainer');
+        btnContainer.appendChild(rematch);
+        const replay = document.getElementsByClassName('rainbow');
+        replay[0].addEventListener('click', function (e) {
+            const btnContain = document.querySelector('#btnContainer');
+            btnContain.removeChild(btnContain.lastChild);
+            for (i of btns) {
+                i.classList.toggle('hide');
+            }
+            counter = 0;
+            computerCounter = 0;
+            drawCounter = 0;
+            removelAllChildNodes(runningTotal);
+            removelAllChildNodes(result);
+            result.style.border = 'none';
+            runningTotal.style.border = 'none';
+        });
+    }
 
     removelAllChildNodes(result);
     removelAllChildNodes(runningTotal);
@@ -87,47 +168,56 @@ function play(userChoice, computerChoice) {
     runningTotal.style.border = '2px solid white';
 
 
+
     const playerBox = document.createElement('div');
-    playerBox.style.cssText = 'flex: 1; display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
-    const user = document.createElement('p');
-    user.innerText = "You chose:";
-    const userChoiceImg = document.createElement('div');
-    userChoiceImg.classList.add(userChoice);
-    playerBox.appendChild(user);
-    playerBox.appendChild(userChoiceImg);
+    playerBox.classList.add('resultCards');
+    const playerBoxHeader = document.createElement('p');
+    playerBoxHeader.innerText = "You chose:";
+    const playerBoxImg = document.createElement('div');
+    playerBoxImg.classList.add(userChoice);
+    playerBox.appendChild(playerBoxHeader);
+    playerBox.appendChild(playerBoxImg);
     result.appendChild(playerBox);
+
     const kittyBox = document.createElement('div');
-    kittyBox.style.cssText = 'flex: 1; display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
-    const puter = document.createElement('p');
-    puter.innerText = "Kitty chose:";
-    const kittyChoiceImg = document.createElement('div');
-    kittyChoiceImg.classList.add(computerChoice);
-    kittyBox.appendChild(puter);
-    kittyBox.appendChild(kittyChoiceImg);
+    kittyBox.classList.add('resultCards');
+    const kittyBoxHeader = document.createElement('p');
+    kittyBoxHeader.innerText = "Kitty chose:";
+    const kittyBoxImg = document.createElement('div');
+    kittyBoxImg.classList.add(computerChoice);
+    kittyBox.appendChild(kittyBoxHeader);
+    kittyBox.appendChild(kittyBoxImg);
     result.appendChild(kittyBox);
 
     const resultBox = document.createElement('div');
-    resultBox.style.cssText = 'flex: 2; display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    resultBox.classList.add('resultCards');
+    resultBox.style.cssText = 'margin-left: 1rem; margin-right: 1rem;';
     result.insertBefore(resultBox, kittyBox);
 
-    const btns = document.querySelectorAll('button');
+
 
     const playerTotal = document.createElement('div');
-    playerTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    playerTotal.classList.add('resultCards');
     const playerCounter = document.createElement('div');
     playerCounter.innerText = counter;
+    playerCounter.style.fontSize = '2rem';
     playerTotal.appendChild(playerCounter);
     runningTotal.appendChild(playerTotal);
+
     const drawTotal = document.createElement('div');
-    drawTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-left: 1rem; margin-right: 1rem; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    drawTotal.classList.add('resultCards');
+    drawTotal.style.cssText = 'margin-left: 1rem; margin-right: 1rem;';
     const drawsCounter = document.createElement('div');
     drawsCounter.innerText = drawCounter;
+    drawsCounter.style.fontSize = '2rem';
     drawTotal.appendChild(drawsCounter);
     runningTotal.appendChild(drawTotal);
+
     const kittyTotal = document.createElement('div');
-    kittyTotal.style.cssText = 'display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: black; color: white; border-radius: 35px; padding: 1rem;';
+    kittyTotal.classList.add('resultCards');
     const kittyCounter = document.createElement('div');
     kittyCounter.innerText = computerCounter;
+    kittyCounter.style.fontSize = '2rem';
     kittyTotal.appendChild(kittyCounter);
     runningTotal.appendChild(kittyTotal);
 
@@ -141,9 +231,9 @@ function play(userChoice, computerChoice) {
     draws.innerText = "Number of draws:";
     drawTotal.insertBefore(draws, drawsCounter);
 
-    const computerScore = document.createElement('p');
-    computerScore.innerText = "Kitty total:";
-    kittyTotal.insertBefore(computerScore, kittyCounter);
+    const kittyScore = document.createElement('p');
+    kittyScore.innerText = "Kitty total:";
+    kittyTotal.insertBefore(kittyScore, kittyCounter);
 
 
     if (userChoice === computerChoice) {
@@ -152,270 +242,41 @@ function play(userChoice, computerChoice) {
         draw.classList.toggle('flash');
         resultBox.appendChild(draw);
         ++drawCounter;
-        playerCounter.innerText = counter;
         drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
         drawsCounter.classList.toggle('flash');
-    } else if (userChoice === 'paper' && computerChoice === "rock") {
-        const win = document.createElement('p');
-        win.innerText = "You won!";
-        win.classList.toggle('flash');
-        resultBox.appendChild(win);
-        ++counter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        playerCounter.classList.toggle('flash');
-        if (counter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
 
+    } else if (userChoice === 'rock' && computerChoice === "paper") {
+        lose();
+        if (computerCounter === 5) {
+            rematchLoser();
         }
     } else if (userChoice === 'paper' && computerChoice === "scissors") {
-        const lose = document.createElement('p');
-        lose.innerText = "You lose!";
-        lose.classList.toggle('flash');
-        resultBox.appendChild(lose);
-        ++computerCounter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        kittyCounter.classList.toggle('flash');
+        lose();
         if (computerCounter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
-
-        }
-    } else if (userChoice === 'rock' && computerChoice === "paper") {
-        const lose = document.createElement('p');
-        lose.innerText = "You lose!";
-        lose.classList.toggle('flash');
-        resultBox.appendChild(lose);
-        ++computerCounter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        kittyCounter.classList.toggle('flash');
-        if (computerCounter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;'
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
-
-        }
-    } else if (userChoice === 'rock' && computerChoice === "scissors") {
-        const win = document.createElement('p');
-        win.innerText = "You won!";
-        win.classList.toggle('flash');
-        resultBox.appendChild(win);
-        ++counter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        playerCounter.classList.toggle('flash');
-        if (counter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
-
+            rematchLoser();
         }
     } else if (userChoice === 'scissors' && computerChoice === "rock") {
-        const lose = document.createElement('p');
-        lose.innerText = "You lose!";
-        lose.classList.toggle('flash');
-        resultBox.appendChild(lose);
-        ++computerCounter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        kittyCounter.classList.toggle('flash');
+        lose();
         if (computerCounter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Meow! Cats rule humans drool!\n YOU LOSE!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
-
+            rematchLoser();
+        }
+    } else if (userChoice === 'rock' && computerChoice === "scissors") {
+        win();
+        if (counter === 5) {
+            rematchWinner();
+        }
+    } else if (userChoice === 'paper' && computerChoice === "rock") {
+        win();
+        if (counter === 5) {
+            rematchWinner();
         }
     } else if (userChoice === 'scissors' && computerChoice === "paper") {
-        const win = document.createElement('p');
-        win.innerText = "You won!";
-        win.classList.toggle('flash');
-        resultBox.appendChild(win);
-        ++counter;
-        playerCounter.innerText = counter;
-        drawsCounter.innerText = drawCounter;
-        kittyCounter.innerText = computerCounter;
-        playerCounter.classList.toggle('flash');
+        win();
         if (counter === 5) {
-            removelAllChildNodes(result);
-            const victor = document.createElement('h1');
-            victor.innerText = "Hss! Spit! Scratch! You beat me!\n YOU WIN!!";
-            result.appendChild(victor);
-            const btns = document.querySelectorAll('button');
-            for (i of btns) {
-                i.classList.toggle('hide');
-            }
-            const rematch = document.createElement('button');
-            rematch.innerText = "Again?";
-            rematch.style.cssText = 'font-size: 2rem; text-align: center;';
-            rematch.classList.add('rainbow');
-            const btnContainer = document.querySelector('#btnContainer');
-            btnContainer.appendChild(rematch);
-            const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function (e) {
-                const btnContain = document.querySelector('#btnContainer');
-                btnContain.removeChild(btnContain.lastChild);
-                for (i of btns) {
-                    i.classList.toggle('hide');
-                }
-                counter = 0;
-                computerCounter = 0;
-                drawCounter = 0;
-                removelAllChildNodes(runningTotal);
-                removelAllChildNodes(result);
-                result.style.border = 'none';
-                runningTotal.style.border = 'none';
-            });
-
+            rematchWinner();
         }
     }
-
 };
-
-// setting up the required variables and counters to keep score.
-let counter = 0;
-let computerCounter = 0;
-let drawCounter = 0;
 
 // adding event listeners to the buttons to play round when user chooses r/p or s
 const btn = document.querySelectorAll('button');
@@ -441,34 +302,17 @@ for (i of btn) {
     });
 }
 
-
-// event listener for reset button
-/*
-const replay = document.getElementsByClassName('rainbow');
-            replay[0].addEventListener('click', function(e) {
-            remplay.classList.add('hide');
-                for (i of btns) {
-                i.classList.toggle('hide');
-            }
-
-            });*/
-
-
-
 // create div's to display results
-const result = document.createElement('div');
-result.style.cssText = 'background: black; color: white; display: flex; justify-content: center; width: 96%; margin: 0 auto; border-radius: 10px; text-align: center;';
-result.setAttribute('id', 'result');
 const body = document.querySelector('body');
+
+const result = document.createElement('div');
+result.classList.add('results');
 body.appendChild(result);
 
 const runningTotal = document.createElement('div');
-runningTotal.style.cssText = 'background: black; display: flex; justify-content: space-around; width: 96%; margin: 0 auto; border-radius: 10px; margin-top: 1rem;';
-runningTotal.setAttribute('id', 'runningTotal');
+runningTotal.classList.add('results');
+runningTotal.style.cssText = 'margin-top: 1rem;';
 body.appendChild(runningTotal);
-
-
-
 
 // function to remove child nodes
 
@@ -477,28 +321,3 @@ function removelAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-
-
-/* // function to loop through 5 rounds and declare win, lose or draw. Resets counters at end. 
- function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(play(prompt("choose", "rock, paper or scissors"), getComputerChoice()));
-    }
-    if (computerCounter > counter) {
-        console.log("Computer wins obviously!");
-        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
-    } else if (computerCounter < counter) {
-        console.log("You win clever clogs!");
-        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
-    } else {
-        console.log("It's a draw! You are both the bestest!");
-        console.log("You won " + counter + " games. Computer won " + computerCounter + " games. You drew " + drawCounter + " games.");
-    }  
-    counter = 0;
-    computerCounter = 0;
-    drawCounter = 0;
-}
-
-
-// call the above game function
-game(); */

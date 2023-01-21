@@ -26,8 +26,10 @@ header {
     height: 120px;
 }
 
-p {
+p,
+div{
     text-align: center;
+    color: white;
 }
 
 #btnContainer {
@@ -43,6 +45,23 @@ p {
 
 .rainbow {
     background-image: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    width: 96%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.resultCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 35px;
+    padding: 1rem;
 }
 
 
@@ -140,7 +159,6 @@ p {
 
 }
 
-
 @media only screen and (max-width: 400px) {
    
     h1 {
@@ -163,7 +181,3 @@ p {
         left: 50%;
     }
 }
-
-
-
-/* cat.style.cssText = 'position: absolute; bottom: -65px; margin-left: -391px; left: 50%;'; */
